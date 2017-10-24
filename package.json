@@ -1,6 +1,6 @@
 { 
   "name": "json-to-xlsx",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "Apify act for converting a JSON input to XLSX",
   "main": "main.js",
   "dependencies": { 
