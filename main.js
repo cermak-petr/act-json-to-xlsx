@@ -21,7 +21,15 @@ function toXlsxBuffer(array){
 
 Apify.main(async () => {
     const input = await Apify.getValue('INPUT');
-    const buffer = toXlsxBuffer(input);
+    let buffer;
+    if (Array.isArray(input)) {
+        buffer = toXlsxBuffer(input);
+    } else if (input.storeId && input.key) {
+        const jsonFromStore = await Apify.client.keyValueStores.getRecord(input);
+        buffer = toXlsxBuffer(jsonFromStore.body);
+    } else {
+        throw new Error('Invalid input');
+    }
     const storeId = (await Apify.getEnv()).defaultKeyValueStoreId;
     const url = "https://api.apifier.com/v2/key-value-stores/" + storeId + "/records/results.xlsx?rawBody=1&disableRedirect=1";
     const type = "application/octet-stream";

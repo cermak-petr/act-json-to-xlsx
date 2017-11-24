@@ -1,14 +1,17 @@
-{ 
+{
   "name": "json-to-xlsx",
   "version": "1.0.0",
   "description": "Apify act for converting a JSON input to XLSX",
   "main": "main.js",
   "license": "Apache-2.0",
+  "scripts": {
+    "run-local": "APIFY_DEV_KEY_VALUE_STORE_DIR=./kvs-local/ node main.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/cermak-petr/act-json-to-xlsx"
   },
-  "dependencies": { 
+  "dependencies": {
     "xlsx": "latest",
     "apify": "latest"
   }
