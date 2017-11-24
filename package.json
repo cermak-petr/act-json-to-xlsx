@@ -12,7 +12,7 @@
     "url": "https://github.com/cermak-petr/act-json-to-xlsx"
   },
   "dependencies": {
-    "xlsx": "latest",
-    "apify": "latest"
+    "xlsx": "^0.11.10",
+    "apify": "^0.4.36"
   }
 }
